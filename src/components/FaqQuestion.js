@@ -5,15 +5,18 @@ function FaqQuestion(props) {
   const { ask, answer } = props.info;
   const [showInfo, setShowInfo] = useState(false);
     return(
-      <section>
-        <div>
+      <section className="faq-conteiner">
+
+        <div className="faq-box">
           <h4>{ ask }</h4>
           <button type="button" onClick={() => setShowInfo(!showInfo)}> 
             { showInfo ? <BsChevronUp /> : <BsChevronDown /> }
           </button>
         </div>
         
-        { showInfo ? <p>{answer}</p> : null }
+        <div className="faq-p">
+          { showInfo ? <p>{ answer }</p> : null }
+        </div>
 
       </section>
   );
