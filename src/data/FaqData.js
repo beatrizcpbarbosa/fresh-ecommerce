@@ -16,7 +16,7 @@ const FaqData = [
     answer: "Our safe choices ensured that there were no contraindications for pregnant/lactating women. but we always recommend that you consult your doctor before using the product, okay?",
   },
   {
-    ask: "Can the products be used daily? at what point in the routine should it be used?",
+    ask: "Can the products be used daily? at what time should it be used?",
     answer: "It can be used daily whenever you need to clean your skin. it can be used, for example, before applying the moisturizing antioxidant.",
   },
   {
