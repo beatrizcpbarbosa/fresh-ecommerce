@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import FaqQuestion from '../components/FaqQuestion'
 import data from '../data/FaqData'
+import Footer from '../components/Footer';
 
 function FAQ() {
     return(
@@ -20,7 +21,8 @@ function FAQ() {
       { data.map((item,index) => {
         return <FaqQuestion key={index} info={item} />
       })}
-    
+
+      <Footer />
       </>
     );
   }

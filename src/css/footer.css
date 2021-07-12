@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: 250px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+}
+
+footer img {
+    width: 100px;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+}
+.link-footer {
+    text-decoration: none;
+    color: white;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/home.css'
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import girl1 from '../imgs/girl1.jpg';
 import orange from '../imgs/oranges.jpg';
 
@@ -13,6 +14,8 @@ function Home() {
         </div>
         
         <div className="paralex" />
+
+        <Footer />
         
       </section>
     );
