@@ -13,7 +13,7 @@ function Routes() {
     <Switch>
       <Route exact path="/" component={ Home } />
       <Route exact path="/about" component={ About } />
-      <Route exact path="/contac" component={ Contact } />
+      <Route exact path="/contact" component={ Contact } />
       <Route exact path="/shop" component={ Shop } />
       <Route exact path="/shop/:product" component={ ProductShop } />
       <Route exact path="/faq" component={ FAQ } />
@@ -21,3 +21,5 @@ function Routes() {
     </Switch>
   );
 }
+
+export default Routes;

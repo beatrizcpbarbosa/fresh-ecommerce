@@ -1,0 +1,20 @@
+.imgcover {
+  background-color: thistle;
+  background-size: cover;
+  height: 500px
+}
+
+.imgcover img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+.paralex {
+  background-image: url('../imgs/oranges.jpg');
+  min-height: 350px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
