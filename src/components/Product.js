@@ -10,9 +10,21 @@ function Product(props) {
 
   function handleClick() {
     setCartAmout((previous) => previous + 1);
+    setProductAmount((previous) => previous + 1);
     console.log(cartAmout);
+    
+    if (cartItens.some((item) => item === name)) {
+      const productInCart = cartItens.filter((item) => item !== name);
+      console.log(productInCart);
+      setCartItens((previous) => [
+        ...productInCart, 
+        [ 
+          props.info, 
+          productAmount,
+        ],
+      ]);
+    }
 
-    cartItens.filter
     setCartItens((previous) => [
       ...previous, 
       [ 
