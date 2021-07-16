@@ -5,13 +5,18 @@ import  ContexShop from './ContexShop';
 function ProviderShop({ children }) {
   //const [products, setProducts] = useState([]);
   // const [opnion, setOpnion] = useState([]);
-  // const [shopCart, setShopCart] = useState([]);
+  const [cartItens, setCartItens] = useState([]);
+  const [cartAmout, setCartAmout] = useState(0);
   // const [messageContact, setMessageContact] = useState([]);
   const [email, setEmail] = useState([]);
   
   const contextValue = {
     email,
     setEmail,
+    cartItens,
+    setCartItens,
+    cartAmout,
+    setCartAmout,
   };
 
   return (
