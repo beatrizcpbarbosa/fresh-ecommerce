@@ -1,13 +1,14 @@
-import facialmask from '../imgs/facialmask';
-import facialscrub from '../imgs/facialscrub';
-import facialsoup from '../imgs/facialsoup';
-import moisturizer from '../imgs/moisturizer';
-import sunscreen from '../imgs/sunscreen';
+import facialmask from '../imgs/facemaskbg.png';
+import facialscrub from '../imgs/facialscrubbg.png';
+import facialsoup from '../imgs/facialsoupbg.png';
+import moisturizer from '../imgs/moisturizerbg.png';
+import sunscreen from '../imgs/sunscreenbg.png';
 
 export const productsData = [
   {
     name: 'Facil Mask',
     describe: 'pro-quality AHA/BHA facial that resurfaces to reveal greater clarity, improved skin texture and tone, and a more youthful-looking radiance.',
+    price: 10.99,
     img: facialmask,
     type: 'SENSITIVE SKIN'
   },
