@@ -21,7 +21,7 @@ function Footer() {
       setEmail((previous) => [ ...previous, input]);
     }
 
-    console.log(email);
+    //console.log(email);
 
     return(
       <section>

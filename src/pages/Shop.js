@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Product from '../components/Product'
-import { productsData } from '../data/ProductsData'
+import ContextShop from '../ContexApi/ContexShop';
 
 function Shop() {
-  console.log( productsData);
+  const { products } = useContext(ContextShop);
     return(
       <>
       <Header />
@@ -13,11 +13,13 @@ function Shop() {
         <div>
           <h2>Shop</h2>
           <select>
-            <option></option>
+            <option hidden> Filter by</option>
+            <option> A to Z </option>
+            <option> price </option>
           </select>
         </div>
 
-        { productsData.map((item, index) => <Product key={ index } info={ item }/>) }
+        { products.map((item, index) => <Product key={ index } info={ item }/>) }
       </section>
       <Footer />
       </>
