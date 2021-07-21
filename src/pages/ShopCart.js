@@ -16,7 +16,7 @@ function ShopCart() {
       <section>
         <h2> Your Shopping Cart</h2>
 
-        { cartItens.map((item) => {
+        {/* { cartItens.map((item) => {
           return (
             <div>
               <img src={ item.img } alt="product img" width="100"/>
@@ -29,7 +29,7 @@ function ShopCart() {
               <p> total do item </p>
             </div>
           )
-        }) }
+        }) } */}
 
 
 

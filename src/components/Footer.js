@@ -19,6 +19,7 @@ function Footer() {
 
     function handleClick() {
       setEmail((previous) => [ ...previous, input]);
+      console.log(email);
     }
 
     //console.log(email);

@@ -11,7 +11,7 @@ function ProviderShop({ children }) {
   const [cartItens, setCartItens] = useState([]);
   // const [cartAmout, setCartAmout] = useState(0);
 
-  // const [messageContact, setMessageContact] = useState([]);
+  const [messageContact, setMessageContact] = useState([]);
   const [email, setEmail] = useState([]);
 
   
@@ -51,6 +51,8 @@ function ProviderShop({ children }) {
     addToCart,
     opnion,
     setOpnion,
+    messageContact,
+    setMessageContact,
   };
 
   return (
