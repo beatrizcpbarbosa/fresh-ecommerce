@@ -6,6 +6,8 @@ import Carousel from 'react-elastic-carousel'
 
 function CarrosselOpnion() {
   const { opnion } = useContext(ContextShop);
+  console.log( opnion );
+
 
   return(
   <Carousel itemsToShow={1}>
