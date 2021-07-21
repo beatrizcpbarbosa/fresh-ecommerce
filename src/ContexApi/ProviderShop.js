@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import  ContexShop from './ContexShop';
 import { productsData } from '../data/ProductsData'
+import { OpnionData } from '../data/OpnionData'
 
 function ProviderShop({ children }) {
   const [products, setProducts] = useState(productsData);
-  // const [opnion, setOpnion] = useState([]);
+  const [opnion, setOpnion] = useState(OpnionData);
 
   const [cartItens, setCartItens] = useState([]);
   // const [cartAmout, setCartAmout] = useState(0);
@@ -48,6 +49,8 @@ function ProviderShop({ children }) {
     products,
     setEmail,
     addToCart,
+    opnion,
+    setOpnion,
   };
 
   return (

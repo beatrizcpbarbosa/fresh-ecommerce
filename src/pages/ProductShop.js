@@ -42,7 +42,7 @@ function ProductShop() {
         </button>
       </div>
     </div>
-    <CarroselOpnion />
+    <CarrosselOpnion />
     <Footer />
     </>
   );
