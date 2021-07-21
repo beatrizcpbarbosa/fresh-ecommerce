@@ -14,7 +14,7 @@ function ProviderShop({ children }) {
   const [cartItens, setCartItens] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const [cartAmout, setCartAmout] = useState(0);
-  const [ProductsAmout, setProductsAmout] = useState([
+  const [productsAmout, setProductsAmout] = useState([
     { 1: 1 }, { 2: 1 }, { 3: 1 }, { 4: 1 }, { 5: 1 }, 
   ]);
 
@@ -33,7 +33,7 @@ function ProviderShop({ children }) {
       setCartItens((previous) => [...previous, info]);
     } else {
       
-      const amout = ProductsAmout.find((item) => item[id]);
+      const amout = productsAmout.find((item) => item[id]);
       console.log(amout)
       amout[id] += 1;
       setProductsAmout((previous) => [...previous, amout[id]]);
@@ -55,7 +55,7 @@ function ProviderShop({ children }) {
     }  
 
     console.log(cartItens);
-    console.log(ProductsAmout[4]);
+    console.log(productsAmout[4]);
   }
   
   function increment() {
@@ -76,13 +76,15 @@ function ProviderShop({ children }) {
 
   const contextValue = {
     email,
-    // products,
     setEmail,
-    addToCart,
     opnion,
     setOpnion,
     messageContact,
     setMessageContact,
+    addToCart,
+    cartItens,
+    cartAmout,
+    productsAmout,
   };
 
   return (

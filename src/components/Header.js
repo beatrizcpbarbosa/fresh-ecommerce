@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/header.css';
+import ContextShop from '../contexApi/ContexShop';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/logo2.png'
 
 function Header() {
+    const { cartAmout } = useContext(ContextShop);
     return(
       <section>
         <div className="upHeader">
@@ -17,7 +19,10 @@ function Header() {
           <div>
             <Link to='/about' className="link">About</Link>
             <Link to='/shop' className="link">Shop</Link>
-            <Link to='/cart' className="link"><AiOutlineShopping /></Link>
+            <Link to='/cart' className="link">
+              <AiOutlineShopping />
+              <div> { cartAmout } </div>
+            </Link>
           </div>
         </header>
       </section>

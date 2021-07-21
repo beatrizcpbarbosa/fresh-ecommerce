@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 function ShopCart() {
-    const { cartItens } = useContext(ContextShop);
+    const { cartItens, productsAmout } = useContext(ContextShop);
 
     if(cartItens === []){
       return <h2> Your cart is empty!</h2>
@@ -16,20 +16,22 @@ function ShopCart() {
       <section>
         <h2> Your Shopping Cart</h2>
 
-        {/* { cartItens.map((item) => {
+        { cartItens.map((item) => {
+          const { id } = item;
+          const amout = productsAmout.find((object) => object[id]);
           return (
             <div>
               <img src={ item.img } alt="product img" width="100"/>
               <p> { item.price } </p>
               <div>
                 <AiOutlinePlus  onClick={ () => console.log('click')} />
-                  1
+                  { amout[id] }
                 <AiOutlineMinus  onClick={ () => console.log('click')} />
               </div>
               <p> total do item </p>
             </div>
           )
-        }) } */}
+        }) }
 
 
 
