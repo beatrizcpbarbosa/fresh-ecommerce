@@ -5,7 +5,7 @@ import { AiOutlineShopping, AiOutlinePlus } from 'react-icons/ai';
 
 function Product({info}) {
   //console.log(info);
-  const { img, name, price } = info;
+  const { img, name, price, id } = info;
   const { addToCart } = useContext(ContextShop);
 
   return(
@@ -14,7 +14,7 @@ function Product({info}) {
       <h4> { name } </h4>
       <p> { price }</p>
 
-      <Link to={ `/movies/${name}` }>
+      <Link to={ `/shop/${id}` }>
         <button type="button">
           quero conhecer
         </button>

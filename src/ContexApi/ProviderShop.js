@@ -8,35 +8,35 @@ function ProviderShop({ children }) {
   // const [opnion, setOpnion] = useState([]);
 
   const [cartItens, setCartItens] = useState([]);
-  const [cartAmout, setCartAmout] = useState(0);
+  // const [cartAmout, setCartAmout] = useState(0);
 
   // const [messageContact, setMessageContact] = useState([]);
   const [email, setEmail] = useState([]);
 
   
   function addToCart(info) {
-    const { amout } = info;
+    // const { amout } = info;
     
 
-    setCartAmout(previous => previous + 1);
+    // setCartAmout(previous => previous + 1);
     
 
-    const repeat = cartItens.some((item) => item.product.name === info.name);
-    console.log(repeat);
+    // const repeat = cartItens.some((item) => item.product.name === info.name);
+    // console.log(repeat);
     
-    if(cartItens.some((item) => item.product.name === info.name)){
+    // if(cartItens.some((item) => item.product.name === info.name)){
 
-      setProducts(previous => [
-        ...previous,
-        {
-          ...previous,
-          amout: amout += 1,
-        }
-      ])
-      
-      const filterRepeat = cartItens.filter((item) => item.product.name !== info.name);
-      setCartItens([...filterRepeat, info]);
-    }
+    //   setProducts(previous => [
+    //     ...previous,
+    //     {
+    //       ...previous,
+    //       amout: amout += 1,
+    //     }
+    //   ])
+
+    //   const filterRepeat = cartItens.filter((item) => item.product.name !== info.name);
+    //   setCartItens([...filterRepeat, info]);
+    // }
 
     setCartItens(previous => [...previous, info]);
     console.log(cartItens);
@@ -45,13 +45,14 @@ function ProviderShop({ children }) {
   
   const contextValue = {
     email,
+    products,
     setEmail,
     addToCart,
   };
 
   return (
-    <ContexShop.Provider value={contextValue}>
-      {children}
+    <ContexShop.Provider value={ contextValue }>
+      { children }
     </ContexShop.Provider>
   );
 }

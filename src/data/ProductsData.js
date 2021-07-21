@@ -7,7 +7,7 @@ import sunscreen from '../imgs/sunscreenbg.png';
 export const productsData = [
   {
     id: 1,
-    name: 'Facil Mask',
+    name: 'Facial Mask',
     describe: 'pro-quality AHA/BHA facial that resurfaces to reveal greater clarity, improved skin texture and tone, and a more youthful-looking radiance.',
     price: 10.99,
     img: facialmask,
@@ -16,7 +16,7 @@ export const productsData = [
   },
   {
     id: 2,
-    name: 'Facil Soup',
+    name: 'Facial Soup',
     describe: 'Ceramide-rich gently removes makeup, dirt, pollution, and bacteria from the face and eye area without sensitization, irritation, or stripping skin’s acid mantle.',
     price: 10.99,
     img: facialsoup,

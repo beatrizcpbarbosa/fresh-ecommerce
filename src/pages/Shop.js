@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Product from '../components/Product'
-import ContextShop from '../ContexApi/ContexShop';
+import ContextShop from '../contexApi/ContexShop';
 
 function Shop() {
   const { products } = useContext(ContextShop);

@@ -15,7 +15,7 @@ function Routes() {
       <Route exact path="/about" component={ About } />
       <Route exact path="/contact" component={ Contact } />
       <Route exact path="/shop" component={ Shop } />
-      <Route exact path="/shop/:product" component={ ProductShop } />
+      <Route exact path="/shop/:id" component={ ProductShop } />
       <Route exact path="/faq" component={ FAQ } />
       <Route exact path="/cart" component={ ShopCart } />
     </Switch>
