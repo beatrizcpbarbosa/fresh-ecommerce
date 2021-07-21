@@ -5,17 +5,18 @@ import Footer from '../components/Footer';
 import ContextShop from '../contexApi/ContexShop';
 import CarrosselOpnion from '../components/CarrosselOpnion';
 import FormOpnion from '../components/FormOpnion';
+import { productsData } from '../data/ProductsData'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 
 function ProductShop() {
-  const { products, addToCart } = useContext(ContextShop);
+  const { addToCart } = useContext(ContextShop);
   const { id } = useParams();
   const [amoutNumber, setAmoutNumber] = useState(1);
   const [showForm, setShowForm] = useState(false);
  
-  const productObject = products.filter((item) => item.id === Number(id));
+  const productObject = productsData.filter((item) => item.id === Number(id));
   
   const { name, describe, img, price, type } = productObject[0]
 
