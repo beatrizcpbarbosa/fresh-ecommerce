@@ -82,10 +82,12 @@ function ProviderShop({ children }) {
 
   function removeCart(info) {
     const { id } = info;
+    const amout = productsAmout.find((item) => item[id]);
 
     if(window.confirm("Do you want to delete this product?")){
       const filterRemove = cartItens.filter((item) => item.id !== id);
       setCartItens([...filterRemove]);
+      setCartAmout(previous => previous - amout[id]);
     }
   
   }

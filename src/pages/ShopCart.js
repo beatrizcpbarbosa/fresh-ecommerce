@@ -18,18 +18,18 @@ function ShopCart() {
         <h2> Your Shopping Cart</h2>
 
         { cartItens.map((item) => {
-          const { id } = item;
+          const { id, img, price } = item;
           const amout = productsAmout.find((object) => object[id]);
           return (
             <div>
-              <img src={ item.img } alt="product img" width="100"/>
-              <p> { item.price } </p>
+              <img src={ img } alt="product img" width="100"/>
+              <p> { price } </p>
               <div>
                 <AiOutlinePlus  onClick={() => increment(item)} />
                   { amout[id] }
                 <AiOutlineMinus  onClick={() => decrement(item)} />
               </div>
-              <p> total do item </p>
+              <p> total </p>
               <button type="button" onClick={ () => removeCart(item)}>remove</button>
             </div>
           )
