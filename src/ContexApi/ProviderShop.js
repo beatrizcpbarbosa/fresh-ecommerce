@@ -58,19 +58,39 @@ function ProviderShop({ children }) {
     console.log(productsAmout[4]);
   }
   
-  function increment() {
-
+  function increment(info) {
+    const { id } = info;
+    const amout = productsAmout.find((item) => item[id]);
+    amout[id] += 1;
+    setProductsAmout((previous) => [...previous, amout[id]]);
+    setCartAmout(previous => previous + 1);
   }
 
-  function decrement() {
+  function decrement(info) {
+    const { id } = info;
+    const amout = productsAmout.find((item) => item[id]);
     
+    if(amout[id] === 1) {
+      amout[id] = 1;
+      setProductsAmout((previous) => [...previous, amout[id]]);
+    } else {
+      amout[id] -= 1 ;
+      setProductsAmout((previous) => [...previous, amout[id]]);
+      setCartAmout(previous => previous - 1);
+    }
   }
 
-  function removeCart() {
-    
+  function removeCart(info) {
+    const { id } = info;
+
+    if(window.confirm("Do you want to delete this product?")){
+      const filterRemove = cartItens.filter((item) => item.id !== id);
+      setCartItens([...filterRemove]);
+    }
+  
   }
 
-  function getTotal() {
+  function getTotal(info) {
     
   }
 
@@ -85,6 +105,10 @@ function ProviderShop({ children }) {
     cartItens,
     cartAmout,
     productsAmout,
+    increment,
+    decrement,
+    removeCart,
+    getTotal,
   };
 
   return (
