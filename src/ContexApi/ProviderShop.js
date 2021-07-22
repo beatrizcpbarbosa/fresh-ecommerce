@@ -120,6 +120,8 @@ function ProviderShop({ children }) {
     increment,
     decrement,
     removeCart,
+    setCartAmout,
+    setProductsAmout,
   };
 
   return (

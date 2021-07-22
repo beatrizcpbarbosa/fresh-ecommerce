@@ -6,19 +6,24 @@ import ContextShop from '../contexApi/ContexShop';
 import CarrosselOpnion from '../components/CarrosselOpnion';
 import FormOpnion from '../components/FormOpnion';
 import { productsData } from '../data/ProductsData'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+// import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 
 function ProductShop() {
   const { addToCart } = useContext(ContextShop);
   const { id } = useParams();
-  //onst [amoutNumber, setAmoutNumber] = useState(1);
+  // const [quantity, setQuantity] = useState(0);
   const [showForm, setShowForm] = useState(false);
  
   const productObject = productsData.filter((item) => item.id === Number(id));
   
   const { name, describe, img, price, type } = productObject[0]
+
+  // const amout = productsAmout.find((item) => item[id]);
+  // amout[id] += quantity;
+  // console.log(quantity);
+
 
   return(
     <>
@@ -32,14 +37,24 @@ function ProductShop() {
         <p> { type } </p>
         <p> { describe } </p>
 
-        <div>
-          <AiOutlinePlus  onClick={ () => console.log('click')} />
-            
-          <AiOutlineMinus  onClick={ () => console.log('click')} />
-        </div>
+        {/* <div>
+          <AiOutlinePlus  onClick={() => increment(productObject[0])} />
+            { amout[id] }
+          <AiOutlineMinus  onClick={() => decrement(productObject[0])} />
+        </div> */}
+       
+       {/* <label>
+        Quantity
+        <input type="number" onChange={(ev) => setQuantity(ev.target.value)}/>
+       </label> */}
+
        
 
-        <button type="button" onClick={() => addToCart(productObject[0])}>
+        <button type="button" onClick={() => {
+          addToCart(productObject[0]);
+          // setCartAmout(previous => previous + Number(quantity));
+          // setProductsAmout((previous) => [...previous, amout[id]]);
+        }}>
           add to shop
         </button>
       </div>
