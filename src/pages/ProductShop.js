@@ -13,7 +13,7 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 function ProductShop() {
   const { addToCart } = useContext(ContextShop);
   const { id } = useParams();
-  const [amoutNumber, setAmoutNumber] = useState(1);
+  //onst [amoutNumber, setAmoutNumber] = useState(1);
   const [showForm, setShowForm] = useState(false);
  
   const productObject = productsData.filter((item) => item.id === Number(id));
@@ -34,7 +34,7 @@ function ProductShop() {
 
         <div>
           <AiOutlinePlus  onClick={ () => console.log('click')} />
-            { amoutNumber }
+            
           <AiOutlineMinus  onClick={ () => console.log('click')} />
         </div>
        

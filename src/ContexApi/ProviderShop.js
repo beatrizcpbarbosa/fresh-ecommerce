@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import  ContexShop from './ContexShop';
-import { productsData } from '../data/ProductsData'
+//import { productsData } from '../data/ProductsData'
 import { OpnionData } from '../data/OpnionData'
 
 function ProviderShop({ children }) {
@@ -20,7 +20,6 @@ function ProviderShop({ children }) {
 
   
   function addToCart(info) {
-    // const { amout, id } = info;
     const { id } = info;
   
     setCartAmout(previous => previous + 1);
@@ -32,7 +31,6 @@ function ProviderShop({ children }) {
     if(check){
       setCartItens((previous) => [...previous, info]);
     } else {
-      
       const amout = productsAmout.find((item) => item[id]);
       console.log(amout)
       amout[id] += 1;
@@ -54,8 +52,9 @@ function ProviderShop({ children }) {
       setCartItens([...filterRepeat, info]);
     }  
 
+    getTotal();
+
     console.log(cartItens);
-    console.log(productsAmout[4]);
   }
   
   function increment(info) {
@@ -64,6 +63,7 @@ function ProviderShop({ children }) {
     amout[id] += 1;
     setProductsAmout((previous) => [...previous, amout[id]]);
     setCartAmout(previous => previous + 1);
+    getTotal();
   }
 
   function decrement(info) {
@@ -78,6 +78,7 @@ function ProviderShop({ children }) {
       setProductsAmout((previous) => [...previous, amout[id]]);
       setCartAmout(previous => previous - 1);
     }
+    getTotal();
   }
 
   function removeCart(info) {
@@ -88,12 +89,20 @@ function ProviderShop({ children }) {
       const filterRemove = cartItens.filter((item) => item.id !== id);
       setCartItens([...filterRemove]);
       setCartAmout(previous => previous - amout[id]);
+      getTotal();
     }
-  
   }
 
-  function getTotal(info) {
-    
+  function getTotal() {
+    // if(cartItens !== []){
+    //   const total = cartItens.reduce((previous, product) => {
+    //     const { id, price } = product;
+    //     const amout = productsAmout.find((item) => item[id]);
+    //     return previous + (Number(price) * amout[id]);
+    //   })
+    //   console.log(total);
+    //   setCartTotal(total);
+    // }
   }
 
   const contextValue = {
@@ -106,11 +115,11 @@ function ProviderShop({ children }) {
     addToCart,
     cartItens,
     cartAmout,
+    cartTotal,
     productsAmout,
     increment,
     decrement,
     removeCart,
-    getTotal,
   };
 
   return (
