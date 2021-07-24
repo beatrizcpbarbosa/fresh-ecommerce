@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import AboutFresh from '../components/AboutFresh';
 import girl2 from '../imgs/girl2.jpg';
 import girlclose from '../imgs/girlclose.jpg';
 import oranges2 from '../imgs/oranges2.jpg';
@@ -14,7 +15,7 @@ function About() {
         <p>More than skin care products, Sallve is a welcoming place that connects people, ideas and content about beauty. That’s how, between honest conversations and careful research, we’re developing incredible formulas inspired by real needs.</p>
         <img src={ girl2 } alt="product img" width="100"/>
 
-        {/* <AboutProduct /> */}
+        <AboutFresh />
 
         <div>
           <img src={ girlclose } alt="product img" width="100"/>
