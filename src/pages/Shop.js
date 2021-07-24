@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/shop.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Product from '../components/Product'
@@ -11,7 +12,8 @@ function Shop() {
       <>
       <Header />
       <section>
-        <div>
+
+        <div className="shop-header">
           <h2>Shop</h2>
           <select>
             <option hidden> Filter by</option>
@@ -20,7 +22,10 @@ function Shop() {
           </select>
         </div>
 
-        { productsData.map((item, index) => <Product key={ index } info={ item }/>) }
+        <div className="shop-conteiner">
+          { productsData.map((item, index) => <Product key={ index } info={ item }/>) }
+        </div>
+
       </section>
       <Footer />
       </>

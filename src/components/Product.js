@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import '../css/product.css';
 import { Link } from 'react-router-dom';
 import ContextShop from '../contexApi/ContexShop';
 import { AiOutlineShopping, AiOutlinePlus } from 'react-icons/ai';
@@ -9,20 +10,29 @@ function Product({info}) {
   const { addToCart } = useContext(ContextShop);
 
   return(
-    <div>
-      <img src={ img } alt="product img" width="100"/>
+    <div className="product-conteiner">
+
+      <div className="img-container">
+
+        <img src={ img } alt="product img"/>
+
+        <div className="btns-product">
+          <Link to={ `/shop/${id}` }>
+            <button type="button" className="see-more">
+              See more
+            </button>
+          </Link>
+
+          <button type="button" onClick={() => addToCart(info)} className="add-cart">
+            <AiOutlinePlus /> <AiOutlineShopping />
+          </button>
+        </div>
+
+      </div>
+
       <h4> { name } </h4>
       <p> { price }</p>
 
-      <Link to={ `/shop/${id}` }>
-        <button type="button">
-          quero conhecer
-        </button>
-      </Link>
-
-      <button type="button" onClick={() => addToCart(info)}>
-        <AiOutlinePlus /> <AiOutlineShopping />
-      </button>
     </div>
   );
   }
