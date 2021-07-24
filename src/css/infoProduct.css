@@ -1,0 +1,81 @@
+.form-conteiner {
+  background-color: #DBEA4B;
+  width: 100%;
+}
+
+.form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-header button{
+  background-color: transparent;
+  border-style: none;
+  margin-left: 10px;
+}
+
+.form-opnion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-opnion input {
+  width: 400px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-style: none;
+}
+
+.form-opnion textarea {
+  width: 400px;
+  height: 80px;
+  margin-bottom: 10px;
+  border-style: none;
+}
+
+.form-opnion button {
+  width: 400px;
+  height: 40px;
+  border-style: none;
+  background-color: #F9763D;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.info-product  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:flex-end;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-product img {
+  width: 500px;
+  margin-right: 20px;
+}
+
+.info-product div {
+  width: 400px;
+}
+
+.info-product button {
+  width: 400px;
+  height: 60px;
+  border-style: none;
+  box-shadow: 2px 2px 10px rgba(175, 175, 175, 0.719);
+  background-color: #F9763D;
+  color: white;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.info-product button:hover {
+ background-color: #DBEA4B;
+}

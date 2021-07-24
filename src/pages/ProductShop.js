@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import '../css/infoProduct.css';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -30,7 +31,7 @@ function ProductShop() {
     <Header />
     
     <div className="info-product">
-    <img src={ img } alt="product img" width="100"/>
+      <img src={ img } alt="product img" />
       <div>
         <h2> { name } </h2>
         <p> { price } </p>
@@ -48,8 +49,6 @@ function ProductShop() {
         <input type="number" onChange={(ev) => setQuantity(ev.target.value)}/>
        </label> */}
 
-       
-
         <button type="button" onClick={() => {
           addToCart(productObject[0]);
           // setCartAmout(previous => previous + Number(quantity));
@@ -64,7 +63,7 @@ function ProductShop() {
 
     <div className="form-conteiner">
 
-        <div>
+        <div className="form-header">
           <h4>Talk to us</h4>
           <button type="button" onClick={() => setShowForm(!showForm)}> 
             { showForm ? <BsChevronUp /> : <BsChevronDown /> }

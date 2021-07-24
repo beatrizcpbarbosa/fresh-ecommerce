@@ -24,7 +24,7 @@ function FormOpnion() {
   }
 
   return(
-    <form onSubmit={ (ev) => handleClick(ev) }>
+    <form onSubmit={ (ev) => handleClick(ev) } className="form-opnion" >
       <input
         type="text"
         placeholder="name"
