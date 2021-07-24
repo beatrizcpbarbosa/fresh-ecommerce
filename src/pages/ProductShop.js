@@ -58,8 +58,12 @@ function ProductShop() {
         </button>
       </div>
     </div>
-    
-    <CarrosselOpnion />
+
+
+    <div className="carrossel">
+      <h2>Who wears…</h2>
+      <CarrosselOpnion />
+    </div>
 
     <div className="form-conteiner">
 

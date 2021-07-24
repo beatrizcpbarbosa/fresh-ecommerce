@@ -1,4 +1,5 @@
 import React, { useContext }from 'react';
+import '../css/infoProduct.css';
 import ContextShop from '../contexApi/ContexShop';
 import Carousel from 'react-elastic-carousel'
 
@@ -10,7 +11,7 @@ function CarrosselOpnion() {
 
 
   return(
-  <Carousel itemsToShow={1}>
+  <Carousel itemsToShow={3}>
     { opnion.map((item) => (
       <div>
         <p> { item.describe } </p>
