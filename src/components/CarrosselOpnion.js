@@ -11,7 +11,7 @@ function CarrosselOpnion() {
 
 
   return(
-  <Carousel itemsToShow={3}>
+  <Carousel itemsToShow={2}>
     { opnion.map((item) => (
       <div>
         <p> { item.describe } </p>

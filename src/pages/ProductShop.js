@@ -68,7 +68,7 @@ function ProductShop() {
     <div className="form-conteiner">
 
         <div className="form-header">
-          <h4>Talk to us</h4>
+          <h2>Talk to us</h2>
           <button type="button" onClick={() => setShowForm(!showForm)}> 
             { showForm ? <BsChevronUp /> : <BsChevronDown /> }
           </button>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import '../css/shopCart.css';
 import ContextShop from '../contexApi/ContexShop';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,20 +10,21 @@ function ShopCart() {
     removeCart, cartTotal } = useContext(ContextShop);
 
     if(cartItens === []){
-      return <h2> Your cart is empty!</h2>
+      return <h2 className="cart-title"> Your cart is empty!</h2>
     } 
     return(
       <>
       <Header />
       <section>
-        <h2> Your Shopping Cart</h2>
+        <h2 className="cart-title"> Your Shopping Cart</h2>
 
         { cartItens.map((item) => {
-          const { id, img, price } = item;
+          const { id, img, price, name} = item;
           const amout = productsAmout.find((object) => object[id]);
           return (
-            <div>
+            <div className="cart-product">
               <img src={ img } alt="product img" width="100"/>
+              <h4> { name } </h4>
               <p> { price } </p>
               <div>
                 <AiOutlinePlus  onClick={() => increment(item)} />
@@ -35,10 +37,10 @@ function ShopCart() {
           )
         }) }
 
-
-
-        <p> { cartTotal } </p>
-        <button type="button" onClick={() => alert('go to checkout')}> Checkout </button>
+        <div className="checkout">
+          <p> { `Total: ${cartTotal}` } </p>
+          <button type="button" onClick={() => alert('go to checkout')}> Checkout </button>
+        </div>
       </section>
       <Footer />
       </>
