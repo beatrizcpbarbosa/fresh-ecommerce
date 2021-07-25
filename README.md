@@ -26,8 +26,8 @@ Fresh is an E-coomerce skin care website!
 ### How to run the project
 - Download the project
 
-> yarn add
-> npm install
+>     yarn add
+>     npm install
 
 >     yarn start
 >     npm start
