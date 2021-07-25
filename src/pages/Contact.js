@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect }from 'react';
+import '../css/contact.css';
 import ContextShop from '../contexApi/ContexShop';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -35,12 +36,12 @@ function Contact() {
     <>
       <Header />
 
-      <section> 
-        <div> 
+      <section className="contact-page"> 
+        <div className="text-contact"> 
           <h2>Let us know if you need any help</h2>
           <p>If you can’t find your answer, plus check out our support page If you can’t find your answer, plus check out our support page</p>
         </div>
-        <form onSubmit={ (ev) => handleClick(ev) }>
+        <form onSubmit={ (ev) => handleClick(ev) } className="form-contact">
           <input
             type="text"
             placeholder="name"
