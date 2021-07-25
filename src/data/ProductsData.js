@@ -13,6 +13,7 @@ export const productsData = [
     img: facialmask,
     type: 'SENSITIVE SKIN',
     amout: 1,
+    status: 'new',
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const productsData = [
     img: facialsoup,
     type: 'NORMAL SKIN & COMBINATION SKIN',
     amout: 1,
+    status: 'new',
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ export const productsData = [
     img: sunscreen,
     type: 'OILY SKIN & SENSITIVE SKIN',
     amout: 1,
+    status: 'new',
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const productsData = [
     img: moisturizer,
     type: 'DRY SKIN',
     amout: 1,
+    status: 'old',
   },
   {
     id: 5,
@@ -49,5 +53,6 @@ export const productsData = [
     img: facialscrub,
     type: 'NORMAL SKIN & COMBINATION SKIN',
     amout: 1,
+    status: 'old',
   }
 ];
