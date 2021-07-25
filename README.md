@@ -22,3 +22,11 @@ Fresh is an E-coomerce skin care website!
 - React Router
 - React Hooks
 - Context API
+
+### How to run the project
+- Download the project
+> yarn add
+> npm install
+
+> yarn start
+> npm start
