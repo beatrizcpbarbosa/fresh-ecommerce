@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import  ContexShop from './ContexShop';
-//import { productsData } from '../data/ProductsData'
+import { productsData } from '../data/ProductsData'
 import { OpnionData } from '../data/OpnionData'
 
-function ProviderShop({ children }) {
-  // const [products, setProducts] = useState(productsData);
-  
+function ProviderShop({ children }) {  
   const [opnion, setOpnion] = useState(OpnionData);
   const [messageContact, setMessageContact] = useState([]);
   const [email, setEmail] = useState([]);
@@ -16,7 +14,6 @@ function ProviderShop({ children }) {
   const [productsAmout, setProductsAmout] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
   
-
   useEffect(() => {
     getTotal();
   }, [cartAmout]);
@@ -40,7 +37,6 @@ function ProviderShop({ children }) {
     console.log(cartAmout);
   }
   
-
   function increment(info) {
     const { id } = info;
 
@@ -77,15 +73,18 @@ function ProviderShop({ children }) {
   }
 
   function getTotal() {
-    // if(cartItens.length !== 0){
-    //   const total = cartItens.reduce((previous, product) => {
-    //     const { id, price } = product;
-    //     const amout = productsAmout.find((item) => item[id]);
-    //     return previous + (Number(price) * Number(amout[id]));
-    //   })
-    //   console.log(total);
-    //   setCartTotal(total);
-    // }
+    if(cartItens.length !== 0){
+      // https://pt.stackoverflow.com/questions/16483/remover-elementos-repetido-dentro-de-um-array-em-javascript
+      const filter = cartItens.filter((item, index) => {
+        return cartItens.indexOf(item) === index;
+      });
+      console.log(filter);
+      const total = filter.reduce((previous, current) => {
+        return (previous.price * productsAmout[previous.id]) + (current.price * productsAmout[current.id]);
+      })
+      console.log(total);
+      setCartTotal(total);
+    }
   }
 
   const contextValue = {

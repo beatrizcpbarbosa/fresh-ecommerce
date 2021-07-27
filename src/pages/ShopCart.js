@@ -9,6 +9,10 @@ function ShopCart() {
     const { cartItens, productsAmout, increment, decrement,
     removeCart, cartTotal } = useContext(ContextShop);
 
+    const filter = cartItens.filter((item, index) => {
+      return cartItens.indexOf(item) === index;
+    });
+
     if(cartItens === []){
       return <h2 className="cart-title"> Your cart is empty!</h2>
     } 
@@ -18,9 +22,8 @@ function ShopCart() {
       <section>
         <h2 className="cart-title"> Your Shopping Cart</h2>
 
-        { cartItens.map((item) => {
+        { filter.map((item) => {
           const { id, img, price, name} = item;
-          // const amout = productsAmout.find((object) => object[id]);
           return (
             <div className="cart-product">
               <img src={ img } alt="product img" width="100"/>
@@ -28,11 +31,10 @@ function ShopCart() {
               <p> { price } </p>
               <div>
                 <AiOutlinePlus  onClick={() => increment(item)} />
-                  {/* { amout[id] } */}
                   { productsAmout[id] }
                 <AiOutlineMinus  onClick={() => decrement(item)} />
               </div>
-              {/* <p> { price * amout[id] } </p> */}
+              <p> { price * productsAmout[id] } </p>
               <button type="button" onClick={ () => removeCart(item)}>remove</button>
             </div>
           )
