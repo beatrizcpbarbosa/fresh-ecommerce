@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter } from 'react-router-dom'
 import ProviderShop from './contexApi/ProviderShop'
 import Routs from './pages/Routs'

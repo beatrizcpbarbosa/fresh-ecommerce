@@ -5,7 +5,6 @@ import ContextShop from '../contexApi/ContexShop';
 import { AiOutlineShopping, AiOutlinePlus } from 'react-icons/ai';
 
 function Product({info}) {
-  //console.log(info);
   const { img, name, price, id } = info;
   const { addToCart } = useContext(ContextShop);
 

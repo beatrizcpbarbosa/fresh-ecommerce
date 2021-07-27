@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import  ContexShop from './ContexShop';
 //import { productsData } from '../data/ProductsData'
@@ -12,93 +12,76 @@ function ProviderShop({ children }) {
   const [email, setEmail] = useState([]);
 
   const [cartItens, setCartItens] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
   const [cartAmout, setCartAmout] = useState(0);
-  const [productsAmout, setProductsAmout] = useState([
-    { 1: 1 }, { 2: 1 }, { 3: 1 }, { 4: 1 }, { 5: 1 }, 
-  ]);
-
+  const [productsAmout, setProductsAmout] = useState({});
+  const [cartTotal, setCartTotal] = useState(0);
   
+
+  useEffect(() => {
+    getTotal();
+  }, [cartAmout]);
+
+  useEffect(() => {
+    const amout = cartItens.reduce((previous, current) => (
+      previous[current.id] ?
+      {...previous, [current.id]: previous[current.id] += 1} :
+      {...previous, [current.id]: 1}
+    ),{});
+    console.log(amout);
+
+    setProductsAmout(amout);
+  }, [cartItens]);
+
   function addToCart(info) {
-    const { id } = info;
+    setCartItens((previous) => [...previous, info]);
+    console.log(cartItens);
   
     setCartAmout(previous => previous + 1);
     console.log(cartAmout);
-
-    const check = cartItens.every((item) => item.id !== id);
-    console.log(check);
-    
-    if(check){
-      setCartItens((previous) => [...previous, info]);
-    } else {
-      const amout = productsAmout.find((item) => item[id]);
-      console.log(amout)
-      amout[id] += 1;
-      setProductsAmout((previous) => [...previous, amout[id]]);
-      console.log(amout[id]);
-      
-      // const productAmout = amout + 1
-      // console.log(productAmout);
-      // setProducts(previous => [
-      //   ...previous,
-      //   {
-      //     ...previous,
-      //     amout: productAmout,
-      //   }
-      // ])
-
-      const filterRepeat = cartItens.filter((item) => item.id !== id);
-      console.log(filterRepeat);
-      setCartItens([...filterRepeat, info]);
-    }  
-
-    getTotal();
-
-    console.log(cartItens);
   }
   
+
   function increment(info) {
     const { id } = info;
-    const amout = productsAmout.find((item) => item[id]);
-    amout[id] += 1;
-    setProductsAmout((previous) => [...previous, amout[id]]);
+
     setCartAmout(previous => previous + 1);
-    getTotal();
+
+    setProductsAmout(prevState => {
+      return {...prevState, [id]: productsAmout[id] + 1}
+    });
   }
 
   function decrement(info) {
     const { id } = info;
-    const amout = productsAmout.find((item) => item[id]);
-    
-    if(amout[id] === 1) {
-      amout[id] = 1;
-      setProductsAmout((previous) => [...previous, amout[id]]);
+
+    if(productsAmout[id] === 1) {
+      setProductsAmout(prevState => {
+        return {...prevState, [id]: 1 }
+      });
     } else {
-      amout[id] -= 1 ;
-      setProductsAmout((previous) => [...previous, amout[id]]);
+      setProductsAmout(prevState => {
+        return {...prevState, [id]: productsAmout[id] - 1}
+      });
       setCartAmout(previous => previous - 1);
     }
-    getTotal();
   }
 
   function removeCart(info) {
     const { id } = info;
-    const amout = productsAmout.find((item) => item[id]);
 
     if(window.confirm("Do you want to delete this product?")){
       const filterRemove = cartItens.filter((item) => item.id !== id);
       setCartItens([...filterRemove]);
-      setCartAmout(previous => previous - amout[id]);
-      getTotal();
+      setCartAmout(previous => previous - productsAmout[id]);
     }
   }
 
   function getTotal() {
-    // if(cartItens !== []){
+    // if(cartItens.length !== 0){
     //   const total = cartItens.reduce((previous, product) => {
     //     const { id, price } = product;
     //     const amout = productsAmout.find((item) => item[id]);
-    //     return previous + (Number(price) * amout[id]);
+    //     return previous + (Number(price) * Number(amout[id]));
     //   })
     //   console.log(total);
     //   setCartTotal(total);

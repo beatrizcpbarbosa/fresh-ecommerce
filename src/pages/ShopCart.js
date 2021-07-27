@@ -20,7 +20,7 @@ function ShopCart() {
 
         { cartItens.map((item) => {
           const { id, img, price, name} = item;
-          const amout = productsAmout.find((object) => object[id]);
+          // const amout = productsAmout.find((object) => object[id]);
           return (
             <div className="cart-product">
               <img src={ img } alt="product img" width="100"/>
@@ -28,10 +28,11 @@ function ShopCart() {
               <p> { price } </p>
               <div>
                 <AiOutlinePlus  onClick={() => increment(item)} />
-                  { amout[id] }
+                  {/* { amout[id] } */}
+                  { productsAmout[id] }
                 <AiOutlineMinus  onClick={() => decrement(item)} />
               </div>
-              <p> { price * amout[id] } </p>
+              {/* <p> { price * amout[id] } </p> */}
               <button type="button" onClick={ () => removeCart(item)}>remove</button>
             </div>
           )
