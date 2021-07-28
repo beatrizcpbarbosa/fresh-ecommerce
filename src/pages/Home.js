@@ -13,7 +13,16 @@ function Home() {
       <section>
         <Header />
 
+        <div className="loop-container">
+          <h1 className="loop-text">
+            <span>&nbsp;FRESH IS BEAUTY FRESH IS BEAUTY FRESH IS BEAUTY FRESH IS BEAUTY</span>
+            <span>&nbsp;FRESH IS BEAUTY FRESH IS BEAUTY FRESH IS BEAUTY FRESH IS BEAUTY</span>
+          </h1>
+        </div>
+
         <div className="imgcover"></div>
+
+
 
         <h2 className="home-title">New Products</h2>
         <div className="shop-conteiner">
