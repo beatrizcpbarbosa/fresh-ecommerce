@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../css/header.css';
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/logo2.png'

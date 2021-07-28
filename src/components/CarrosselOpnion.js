@@ -1,6 +1,6 @@
 import React, { useContext }from 'react';
 import '../css/infoProduct.css';
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 import Carousel from 'react-elastic-carousel'
 
 

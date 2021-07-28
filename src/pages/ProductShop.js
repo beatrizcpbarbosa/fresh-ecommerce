@@ -3,7 +3,7 @@ import '../css/infoProduct.css';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 import CarrosselOpnion from '../components/CarrosselOpnion';
 import FormOpnion from '../components/FormOpnion';
 import { productsData } from '../data/ProductsData'

@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import ProviderShop from './contexApi/ProviderShop'
+import ProviderShop from './contexApi/providerShop'
 import Routs from './pages/Routs'
 
 function App() {

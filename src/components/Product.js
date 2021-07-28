@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import '../css/product.css';
 import { Link } from 'react-router-dom';
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 import { AiOutlineShopping, AiOutlinePlus } from 'react-icons/ai';
 
 function Product({info}) {

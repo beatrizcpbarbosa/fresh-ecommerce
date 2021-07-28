@@ -3,7 +3,7 @@ import '../css/footer.css';
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import logo from '../imgs/logo2.png'
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 
 function Footer() {
     const [disabled, setDisabled] = useState(true);

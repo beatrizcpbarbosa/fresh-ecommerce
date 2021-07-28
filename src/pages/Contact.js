@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect }from 'react';
 import '../css/contact.css';
-import ContextShop from '../contexApi/ContexShop';
+import ContextShop from '../contexApi/contexShop';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
