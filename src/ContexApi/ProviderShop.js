@@ -9,9 +9,16 @@ function ProviderShop({ children }) {
   const [email, setEmail] = useState([]);
 
   const [cartItens, setCartItens] = useState([]);
+  // array com objetos com a informação do produdot - tem objetos repetidos 
+  // adiciona um toda vez que eu clico
   const [cartAmout, setCartAmout] = useState(0);
+  // quantidade de vezes que eu adiciono produtos no carrinho de comprado
   const [productsAmout, setProductsAmout] = useState({});
+  // quantidade de vezes que eu adiciono cada producto produtos no carrinho de comprado
+  // é um objeto com 5 chaves, cada chave é o id de um produto e o valor é a quantidade de vezes que eu add esse 
+  // no carrinho de compras
   const [cartTotal, setCartTotal] = useState(0);
+  //valor total de to
   
   // useEffect(() => {
   //   getTotal();
@@ -82,27 +89,25 @@ function ProviderShop({ children }) {
       //   return item.price * productsAmout[item.id];
       // });
 
-      // console.log(productsAmout[filter[0].id])
-      // console.log(arrayPrice);
   
       const total = filter.reduce((previous, current) => {
         return (previous.price * productsAmout[previous.id]) + (current.price * productsAmout[current.id]);
       })
       
 
-      // setCartTotal(total);
+      setCartTotal(total);
 
       
-      let oneProduct;
-      if ( filter.length === 1 && productsAmout[filter[0].id] > 1) {
-        oneProduct = filter[0].price * productsAmout[filter[0].id];
-      } else {
-        oneProduct = filter[0].price;
-      }
+      // let oneProduct;
+      // if ( filter.length === 1 && productsAmout[filter[0].id] > 1) {
+      //   oneProduct = filter[0].price * productsAmout[filter[0].id];
+      // } else {
+      //   oneProduct = filter[0].price;
+      // }
     
 
       //setCartTotal(cartItens.length !== 0 ? total : 0)
-      setCartTotal(filter.length > 1 ? total : oneProduct);
+      // setCartTotal(filter.length > 1 ? total : oneProduct);
     }
 
   }
