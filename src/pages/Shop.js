@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/shop.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -7,28 +7,55 @@ import Product from '../components/Product'
 import { productsData } from '../data/ProductsData';
 
 function Shop() {
-  // const { products } = useContext(ContextShop);
-    const [ productsRender, setProductsRender ] = useState(productsData);
+    const [ products, setProducts ] = useState(productsData);
+    const [ value, setValue ] = useState('');
   
-    function handleClick(value) {
+    useEffect(() => {
       if(value === 'Price'){
         const price = productsData.sort((a, b) => {
           return b.price - a.price;
         });
-        setProductsRender(price);
+        console.log(price);
+        setProducts(price);
       } 
       
       if(value === 'A to Z'){
-        const alphabetic = productsData.sort((a, b) => {
-          return b - a;
-        });
-        setProductsRender(alphabetic);
+        const alphabetic = productsData.sort();
+        console.log(alphabetic);
+        setProducts(alphabetic);
       }
 
       if(value === 'All'){
-        setProductsRender(productsData);
+        console.log(productsData);
+        setProducts(productsData);
       }
-    }
+    }, [value, products]);
+
+    // let products = productsData;
+  
+    // if(value === 'Price'){
+    //   const price = productsData.sort((a, b) => {
+    //     return b.price - a.price;
+    //   });
+    //   console.log(price);
+    //   products = price;
+    //   setProducts(price);
+    // } 
+    
+    // if(value === 'A to Z'){
+    //   const alphabetic = productsData.sort();
+    //   console.log(alphabetic);
+    //   // products = alphabetic;
+    //   setProducts(alphabetic);
+    // }
+
+    // if(value === 'All'){
+    //   console.log(productsData);
+    //   setProducts(productsData);
+    //   // products = productsData;
+    // }
+   
+    
 
     return(
       <>
@@ -37,17 +64,17 @@ function Shop() {
 
         <div className="shop-header">
           <h2>Shop</h2>
-          <select onClick={(ev) => handleClick(ev.target.value)}>
+          <select onClick={(ev) => setValue(ev.target.value)}>
             <option hidden> Filter by</option>
-            <option> Price </option>
             <option> A to Z </option>
+            <option> Price </option>
             <option> All
                </option>
           </select>
         </div>
 
         <div className="shop-conteiner">
-          { productsRender.map((item, index) => <Product key={ index } info={ item }/>) }
+          { products.map((item, index) => <Product key={ index } info={ item }/>) }
         </div>
 
       </section>

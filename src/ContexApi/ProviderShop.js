@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import  ContexShop from './ContexShop';
-import { productsData } from '../data/ProductsData'
 import { OpnionData } from '../data/OpnionData'
 
 function ProviderShop({ children }) {  
@@ -14,9 +13,9 @@ function ProviderShop({ children }) {
   const [productsAmout, setProductsAmout] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
   
-  useEffect(() => {
-    getTotal();
-  }, [cartAmout]);
+  // useEffect(() => {
+  //   getTotal();
+  // }, [cartAmout, cartItens]);
 
   useEffect(() => {
     const amout = cartItens.reduce((previous, current) => (
@@ -24,27 +23,24 @@ function ProviderShop({ children }) {
       {...previous, [current.id]: previous[current.id] += 1} :
       {...previous, [current.id]: 1}
     ),{});
-    console.log(amout);
-
+  
     setProductsAmout(amout);
   }, [cartItens]);
 
   function addToCart(info) {
     setCartItens((previous) => [...previous, info]);
-    console.log(cartItens);
-  
     setCartAmout(previous => previous + 1);
-    console.log(cartAmout);
+    getTotal();
   }
   
   function increment(info) {
     const { id } = info;
 
     setCartAmout(previous => previous + 1);
-
     setProductsAmout(prevState => {
       return {...prevState, [id]: productsAmout[id] + 1}
     });
+    getTotal();
   }
 
   function decrement(info) {
@@ -60,6 +56,7 @@ function ProviderShop({ children }) {
       });
       setCartAmout(previous => previous - 1);
     }
+    getTotal();
   }
 
   function removeCart(info) {
@@ -69,22 +66,45 @@ function ProviderShop({ children }) {
       const filterRemove = cartItens.filter((item) => item.id !== id);
       setCartItens([...filterRemove]);
       setCartAmout(previous => previous - productsAmout[id]);
+      getTotal();
     }
   }
 
   function getTotal() {
+
     if(cartItens.length !== 0){
       // https://pt.stackoverflow.com/questions/16483/remover-elementos-repetido-dentro-de-um-array-em-javascript
       const filter = cartItens.filter((item, index) => {
         return cartItens.indexOf(item) === index;
       });
-      console.log(filter);
+
+      // const arrayPrice = filter.map((item) => {
+      //   return item.price * productsAmout[item.id];
+      // });
+
+      // console.log(productsAmout[filter[0].id])
+      // console.log(arrayPrice);
+  
       const total = filter.reduce((previous, current) => {
         return (previous.price * productsAmout[previous.id]) + (current.price * productsAmout[current.id]);
       })
-      console.log(total);
-      setCartTotal(total);
+      
+
+      // setCartTotal(total);
+
+      
+      let oneProduct;
+      if ( filter.length === 1 && productsAmout[filter[0].id] > 1) {
+        oneProduct = filter[0].price * productsAmout[filter[0].id];
+      } else {
+        oneProduct = filter[0].price;
+      }
+    
+
+      //setCartTotal(cartItens.length !== 0 ? total : 0)
+      setCartTotal(filter.length > 1 ? total : oneProduct);
     }
+
   }
 
   const contextValue = {
