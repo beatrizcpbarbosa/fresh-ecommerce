@@ -6,11 +6,10 @@ Fresh is an E-coomerce skin care website!
 ### Features
 
  - [x]  See all products
- - [ ]  Filter products
  - [x]  Add products to cart
- - [ ]  Total amout to pay
+ - [ ]  Total amout to pay still in progress
  - [x]  Add your opnion about products
- - [ ]  Css animation
+ - [x]  Css animation
 
 
 ### Built with
